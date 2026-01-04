@@ -10,7 +10,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -18,30 +17,25 @@
             padding: 20px;
             color: #333;
         }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
         }
-
         header {
             text-align: center;
             padding: 60px 20px;
             color: white;
             animation: fadeInDown 1s ease;
         }
-
         header h1 {
             font-size: 3.5rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
         header p {
             font-size: 1.3rem;
             opacity: 0.95;
         }
-
         .stats {
             display: flex;
             justify-content: center;
@@ -49,7 +43,6 @@
             margin-top: 30px;
             flex-wrap: wrap;
         }
-
         .stat-box {
             background: rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
@@ -57,12 +50,10 @@
             border-radius: 15px;
             border: 2px solid rgba(255,255,255,0.3);
         }
-
         .stat-box h3 {
             font-size: 2.5rem;
             margin-bottom: 5px;
         }
-
         .filter-section {
             display: flex;
             justify-content: center;
@@ -70,7 +61,6 @@
             margin: 30px 0;
             flex-wrap: wrap;
         }
-
         .filter-btn {
             background: white;
             border: none;
@@ -82,24 +72,20 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
         .filter-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
-
         .filter-btn.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
-
         .project-card {
             background: white;
             border-radius: 20px;
@@ -110,7 +96,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .project-card::before {
             content: '';
             position: absolute;
@@ -120,17 +105,14 @@
             height: 5px;
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         }
-
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
-
         .project-icon {
             font-size: 3rem;
             margin-bottom: 15px;
         }
-
         .project-title {
             font-size: 1.4rem;
             font-weight: 700;
@@ -138,7 +120,6 @@
             color: #333;
             line-height: 1.4;
         }
-
         .project-category {
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -149,7 +130,6 @@
             margin-bottom: 15px;
             font-weight: 600;
         }
-
         .project-link {
             display: inline-flex;
             align-items: center;
@@ -163,12 +143,10 @@
             transition: all 0.3s ease;
             margin-top: 15px;
         }
-
         .project-link:hover {
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -179,7 +157,6 @@
                 transform: translateY(0);
             }
         }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -190,23 +167,20 @@
                 transform: translateY(0);
             }
         }
-
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5rem;
             }
-            
+           
             .projects-grid {
                 grid-template-columns: 1fr;
             }
         }
-
         .search-box {
             max-width: 600px;
             margin: 30px auto;
             position: relative;
         }
-
         .search-box input {
             width: 100%;
             padding: 15px 50px 15px 20px;
@@ -215,7 +189,6 @@
             font-size: 1rem;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
-
         .search-box input:focus {
             outline: none;
             box-shadow: 0 5px 30px rgba(0,0,0,0.3);
@@ -230,8 +203,8 @@
             <div class="stats">
                 <div class="stat-box">
                     <h3 id="totalProjects">0</h3>
-                    <p>60 are public</p>
-                    <p>40+ are for GOB</p>
+                    <p>Total Projects</p>
+                   
                 </div>
                 <div class="stat-box">
                     <h3>8</h3>
@@ -243,11 +216,9 @@
                 </div>
             </div>
         </header>
-
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="🔍 Search projects...">
         </div>
-
         <div class="filter-section">
             <button class="filter-btn active" data-category="all">All Projects</button>
             <button class="filter-btn" data-category="web">🌐 Web Apps</button>
@@ -258,10 +229,8 @@
             <button class="filter-btn" data-category="api">🔌 APIs</button>
             <button class="filter-btn" data-category="admin">⚙️ Admin Panels</button>
         </div>
-
         <div class="projects-grid" id="projectsGrid"></div>
     </div>
-
     <script>
         const projects = [
             { title: "💬 Spike Chat - Real-Time Messaging Platform", link: "https://spikechat1.vercel.app/", category: "web", icon: "💬" },
@@ -325,21 +294,18 @@
             { title: "💝 Uzmi ML - Sentiment Analysis Engine", link: "https://colab.research.google.com/drive/1RcqYKNsvpVlumA2fUaxFPzVTV5QooCJ_?usp=drive_link", category: "ml", icon: "💝" },
             { title: "🏥 Jeevan AI Health Model - Medical Diagnosis", link: "https://colab.research.google.com/drive/1J_l2ksiv8KISQtLECyMO3M520_rhXI4A?usp=drive_link", category: "ml", icon: "🏥" }
         ];
-
         const projectsGrid = document.getElementById('projectsGrid');
         const filterBtns = document.querySelectorAll('.filter-btn');
         const searchInput = document.getElementById('searchInput');
         let currentCategory = 'all';
-
-        document.getElementById('totalProjects').textContent = projects.length;
-
+        document.getElementById('totalProjects').textContent = 103;
         function renderProjects(filteredProjects) {
             projectsGrid.innerHTML = '';
             filteredProjects.forEach((project, index) => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
                 card.style.animationDelay = `${index * 0.1}s`;
-                
+               
                 card.innerHTML = `
                     <div class="project-icon">${project.icon}</div>
                     <span class="project-category">${getCategoryName(project.category)}</span>
@@ -348,11 +314,10 @@
                         Visit Project →
                     </a>
                 `;
-                
+               
                 projectsGrid.appendChild(card);
             });
         }
-
         function getCategoryName(category) {
             const names = {
                 web: '🌐 Web App',
@@ -365,24 +330,22 @@
             };
             return names[category] || category;
         }
-
         function filterProjects() {
             let filtered = projects;
-            
+           
             if (currentCategory !== 'all') {
                 filtered = filtered.filter(p => p.category === currentCategory);
             }
-            
+           
             const searchTerm = searchInput.value.toLowerCase();
             if (searchTerm) {
-                filtered = filtered.filter(p => 
+                filtered = filtered.filter(p =>
                     p.title.toLowerCase().includes(searchTerm)
                 );
             }
-            
+           
             renderProjects(filtered);
         }
-
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
@@ -391,9 +354,7 @@
                 filterProjects();
             });
         });
-
         searchInput.addEventListener('input', filterProjects);
-
         renderProjects(projects);
     </script>
 </body>
