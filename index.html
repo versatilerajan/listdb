@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - 2 Years of Innovation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            animation: fadeInDown 1s ease;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .stat-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .project-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 My Project Portfolio</h1>
+            <p>2 Years of Innovation & Development in College</p>
+            <div class="stats">
+                <div class="stat-box">
+                    <h3 id="totalProjects">0</h3>
+                    <p>Total Projects</p>
+                </div>
+                <div class="stat-box">
+                    <h3>8</h3>
+                    <p>Categories</p>
+                </div>
+                <div class="stat-box">
+                    <h3>2</h3>
+                    <p>Years</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search projects...">
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-category="all">All Projects</button>
+            <button class="filter-btn" data-category="web">🌐 Web Apps</button>
+            <button class="filter-btn" data-category="ai">🤖 AI/ML</button>
+            <button class="filter-btn" data-category="ml">🔬 ML Models</button>
+            <button class="filter-btn" data-category="mobile">📱 Mobile</button>
+            <button class="filter-btn" data-category="game">🎮 Games</button>
+            <button class="filter-btn" data-category="api">🔌 APIs</button>
+            <button class="filter-btn" data-category="admin">⚙️ Admin Panels</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+
+    <script>
+        const projects = [
+            { title: "💬 Spike Chat - Real-Time Messaging Platform", link: "https://spikechat1.vercel.app/", category: "web", icon: "💬" },
+            { title: "👨‍💼 Personal Portfolio Website", link: "https://rajanv10.vercel.app/", category: "web", icon: "👨‍💼" },
+            { title: "🔍 GitCred - GitHub User Credentials Fetcher", link: "https://gitcred.vercel.app/", category: "web", icon: "🔍" },
+            { title: "🏛️ MLA Arun Gupta Official Portfolio", link: "https://arunkumargupta.vercel.app/", category: "web", icon: "🏛️" },
+            { title: "🏛️ MLA Karanjit Singh BJP Portfolio", link: "https://karanjitsinghbjp.vercel.app/", category: "web", icon: "🏛️" },
+            { title: "🍰 Rachit Bakery & Restaurant Website", link: "https://rachitbakery.vercel.app/", category: "web", icon: "🍰" },
+            { title: "📱 baRk Apps - Modern Landing Page", link: "https://barkapps.vercel.app/", category: "web", icon: "📱" },
+            { title: "📰 AI News Aggregator Platform", link: "https://probable-giggle-eight.vercel.app/", category: "web", icon: "📰" },
+            { title: "💼 Fibud - Business Website", link: "https://fibud.vercel.app/", category: "web", icon: "💼" },
+            { title: "🏥 Jeevan AI - Healthcare Assistant", link: "https://jeevanai.streamlit.app", category: "ai", icon: "🏥" },
+            { title: "📈 Stox AI - Stock Market Intelligence", link: "https://stoxxai.streamlit.app", category: "ai", icon: "📈" },
+            { title: "📄 Resume Maker - AI-Powered CV Generator", link: "https://ucentresume.streamlit.app", category: "ai", icon: "📄" },
+            { title: "💝 Uzmi AI - Love Quote Generator", link: "https://uzmiai.streamlit.app", category: "ai", icon: "💝" },
+            { title: "🚂 RailMadad AI - Railway Complaint System", link: "https://railmadad-ai.streamlit.app", category: "ai", icon: "🚂" },
+            { title: "📊 RailMadad Analytics Dashboard", link: "https://railmadad-ai-dashboard.streamlit.app", category: "ai", icon: "📊" },
+            { title: "🌾 Farmo AI - Agricultural Intelligence", link: "https://farmo-ai.streamlit.app", category: "ai", icon: "🌾" },
+            { title: "📈 StoxAI - Advanced Trading Analytics", link: "https://stoxai.streamlit.app", category: "ai", icon: "📈" },
+            { title: "🔗 AlNexus - AI Networking Platform", link: "https://alnexus.streamlit.app", category: "ai", icon: "🔗" },
+            { title: "📦 E-Commerce Inventory Management System", link: "https://e-commerce-inventory-management-system.streamlit.app", category: "ai", icon: "📦" },
+            { title: "🎯 Bullseye - Portfolio Deletion Manager", link: "https://bullseye-deletion.streamlit.app", category: "ai", icon: "🎯" },
+            { title: "🛡️ Frauds Detection - Phone Photo Analyzer", link: "https://frauds-detection-app.streamlit.app/", category: "ai", icon: "🛡️" },
+            { title: "🏏 Truly - Live Cricket Scoring Platform", link: "https://truly-9tau.onrender.com/", category: "web", icon: "🏏" },
+            { title: "👮 COP Sandeep - Police Officer Portfolio", link: "https://copsandeep.vercel.app/", category: "web", icon: "👮" },
+            { title: "🗳️ Eanaa - Real-Time Voting Application", link: "https://eanaaweb.vercel.app/", category: "web", icon: "🗳️" },
+            { title: "⚙️ Siwna Police FIR Admin Panel", link: "https://adminspdbxfe9e.vercel.app/", category: "admin", icon: "⚙️" },
+            { title: "📊 Magadh - ML Insights & Prediction Platform", link: "https://magadh.streamlit.app/", category: "ai", icon: "📊" },
+            { title: "⚙️ SP Notification Admin Portal", link: "https://spnotiadmin.vercel.app/", category: "admin", icon: "⚙️" },
+            { title: "⚙️ Lost Database Admin Panel", link: "https://adminlostdbspsupxe4r.vercel.app/", category: "admin", icon: "⚙️" },
+            { title: "🎮 MFun - Snake Escape Adventure Game", link: "https://mfun.vercel.app/", category: "game", icon: "🎮" },
+            { title: "🦸 LazerMan - Shaktiman Fighting Game", link: "https://lazerman.vercel.app/", category: "game", icon: "🦸" },
+            { title: "📈 Stock Market Trending News API", link: "https://app-tqnwogs6oa-uc.a.run.app", category: "api", icon: "📈" },
+            { title: "₿ Cryptocurrency Price Tracker API", link: "https://api-2rnkhiqxpq-uc.a.run.app", category: "api", icon: "₿" },
+            { title: "💰 SIP Best Company Recommender API", link: "https://app-vupxyrig7a-uc.a.run.app", category: "api", icon: "💰" },
+            { title: "📊 Yahoo Finance Stock Price API", link: "https://api-lyxx6fmzsa-uc.a.run.app", category: "api", icon: "📊" },
+            { title: "🏥 Jeevan Healthcare ML Model API", link: "https://jeevan-app-837190079154.us-central1.run.app", category: "api", icon: "🏥" },
+            { title: "📄 PDF Analyzer ML Service", link: "https://pdf-analyzer-742175076023.us-central1.run.app", category: "api", icon: "📄" },
+            { title: "🎯 Bullseye Price Predictor ML API", link: "https://bullseye-price-predictor-281769648388.us-central1.run.app", category: "api", icon: "🎯" },
+            { title: "📊 Magadh ML Model API", link: "https://magadh-mlmodel.onrender.com", category: "api", icon: "📊" },
+            { title: "📱 Bullseye: Stock Price Predictor (Play Store)", link: "https://play.google.com/store/apps/details?id=com.rajan.bullseye", category: "mobile", icon: "📱" },
+            { title: "🎓 Redox JEE - College Rank Predictor (Play Store)", link: "https://play.google.com/store/apps/details?id=com.rajan.jeerankcollegepredictor", category: "mobile", icon: "🎓" },
+            { title: "📅 Taarikh - Date Management App (Play Store)", link: "https://play.google.com/store/apps/details?id=com.rajan.taarikh", category: "mobile", icon: "📅" },
+            { title: "✨ Google Magic Code - Advanced ML Notebook", link: "https://colab.research.google.com/drive/1DvFzI3jx6ifU5yDwZBx1BsXIIFI0D1tN?usp=drive_link", category: "ml", icon: "✨" },
+            { title: "🕷️ Web Scraping with AI - Intelligent Data Extraction", link: "https://colab.research.google.com/drive/19165v4Dm54EsK693Gj9zadnDzpib3-vm?usp=drive_link", category: "ml", icon: "🕷️" },
+            { title: "🤖 AI Agents for Personal Automation", link: "https://colab.research.google.com/drive/1Sf3BYsj6ObWa3mFWRwRY3ku-DqUeclpv?usp=drive_link", category: "ml", icon: "🤖" },
+            { title: "👥 CrewAI Multi-Agent System", link: "https://colab.research.google.com/drive/1kgCzkPTBfcQ7Lc4iaAH4w0c21UtgHwRQ?usp=drive_link", category: "ml", icon: "👥" },
+            { title: "🔌 OpenAI Integration Framework", link: "https://colab.research.google.com/drive/1KdU8Bs-atOloC5k-cH3K6WQVzku1KdnX?usp=drive_link", category: "ml", icon: "🔌" },
+            { title: "✍️ Handwritten Recognition ML Model", link: "https://colab.research.google.com/drive/1j1et5gOt0ZcnvYGr0UqTkx-GomI8ocCH?usp=drive_link", category: "ml", icon: "✍️" },
+            { title: "⛏️ RAG-Based Chatbot for Coal Mines", link: "https://colab.research.google.com/drive/1R_ApdJcQXCQN-u60flqRoeT0CBNkWNJi?usp=drive_link", category: "ml", icon: "⛏️" },
+            { title: "📱 Telegram Bot Development Framework", link: "https://colab.research.google.com/drive/14ogEAUUfQyHg9PyH_aKMlkuu2kSvH4b6?usp=drive_link", category: "ml", icon: "📱" },
+            { title: "🍅 Tomato Leaf Disease Detection Model", link: "https://colab.research.google.com/drive/1w1DJXh3wphJXcM-aCUbWvB-1SPmRIYv8?usp=drive_link", category: "ml", icon: "🍅" },
+            { title: "📊 AI-Powered Data Extraction System", link: "https://colab.research.google.com/drive/1Uw4E3zO4Z1Jw6xSpFvvsUIGUrE4okv4v?usp=drive_link", category: "ml", icon: "📊" },
+            { title: "🧠 Brain Cancer Detection Neural Network", link: "https://colab.research.google.com/drive/1ln35eSNKQ6gLag2OeRigq5PZJNGLALl9?usp=drive_link", category: "ml", icon: "🧠" },
+            { title: "🛡️ Malware Detection with TLEN & Ember Dataset", link: "https://colab.research.google.com/drive/1dUzRs6S4bDrEl2hNypLksnudeS5s8g7b?usp=drive_link", category: "ml", icon: "🛡️" },
+            { title: "📈 LSTM, RNN, GRU - Stock Price Prediction", link: "https://colab.research.google.com/drive/1_byNRcUXPWvR4-tjMTlsIgyMWrJUqvsc?usp=drive_link", category: "ml", icon: "📈" },
+            { title: "🎯 Ensemble Model - Advanced Stock Prediction", link: "https://colab.research.google.com/drive/16btxyFr1GIB9WaFU_qK4k6ORLXGZKD4s?usp=drive_link", category: "ml", icon: "🎯" },
+            { title: "🌐 Continuous IP Address Fetcher", link: "https://colab.research.google.com/drive/1BBgYzaQZaZuARffFeTDhF4tklTuE8WMC", category: "ml", icon: "🌐" },
+            { title: "🔒 Cybersecurity Analysis Framework", link: "https://colab.research.google.com/drive/1TgMXRAkgrg9rgIbqa4xcRKNSA4toYlYB?usp=drive_link", category: "ml", icon: "🔒" },
+            { title: "🥦 Cauliflower Classification Model", link: "https://colab.research.google.com/drive/1PUzUR51a30xaTX1QDls0Rf6d28jOSZtB?usp=drive_link", category: "ml", icon: "🥦" },
+            { title: "💝 Uzmi ML - Sentiment Analysis Engine", link: "https://colab.research.google.com/drive/1RcqYKNsvpVlumA2fUaxFPzVTV5QooCJ_?usp=drive_link", category: "ml", icon: "💝" },
+            { title: "🏥 Jeevan AI Health Model - Medical Diagnosis", link: "https://colab.research.google.com/drive/1J_l2ksiv8KISQtLECyMO3M520_rhXI4A?usp=drive_link", category: "ml", icon: "🏥" }
+        ];
+
+        const projectsGrid = document.getElementById('projectsGrid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('searchInput');
+        let currentCategory = 'all';
+
+        document.getElementById('totalProjects').textContent = projects.length;
+
+        function renderProjects(filteredProjects) {
+            projectsGrid.innerHTML = '';
+            filteredProjects.forEach((project, index) => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="project-icon">${project.icon}</div>
+                    <span class="project-category">${getCategoryName(project.category)}</span>
+                    <h3 class="project-title">${project.title}</h3>
+                    <a href="${project.link}" target="_blank" class="project-link">
+                        Visit Project →
+                    </a>
+                `;
+                
+                projectsGrid.appendChild(card);
+            });
+        }
+
+        function getCategoryName(category) {
+            const names = {
+                web: '🌐 Web App',
+                ai: '🤖 AI/ML',
+                ml: '🔬 ML Model',
+                mobile: '📱 Mobile',
+                game: '🎮 Game',
+                api: '🔌 API',
+                admin: '⚙️ Admin'
+            };
+            return names[category] || category;
+        }
+
+        function filterProjects() {
+            let filtered = projects;
+            
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === currentCategory);
+            }
+            
+            const searchTerm = searchInput.value.toLowerCase();
+            if (searchTerm) {
+                filtered = filtered.filter(p => 
+                    p.title.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            renderProjects(filtered);
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.category;
+                filterProjects();
+            });
+        });
+
+        searchInput.addEventListener('input', filterProjects);
+
+        renderProjects(projects);
+    </script>
+</body>
+</html>
